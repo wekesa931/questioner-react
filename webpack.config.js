@@ -8,7 +8,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.resolve('dist'),
+    path: path.resolve('dist/'),
     filename: 'index_bundle.js',
     publicPath: '/'
   },
@@ -30,7 +30,14 @@ module.exports = {
         use: "babel-loader"
       }
     ]
-  },devServer: {
+  },
+  resolve: { extensions: ["*", ".js", ".jsx"] },
+  output: {
+    path: path.resolve(__dirname, "dist/"),
+    publicPath: "/dist/",
+    filename: "bundle.js"
+  },
+    devServer: {
     historyApiFallback: true,
 },
   plugins: [HtmlWebpackPluginConfig]
